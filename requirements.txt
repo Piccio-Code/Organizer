@@ -1,0 +1,4 @@
+colorist~=1.8.5
+protobuf~=6.32.0
+google-auth-oauthlib~=1.2.2
+google-api-python-client~=2.179.0
