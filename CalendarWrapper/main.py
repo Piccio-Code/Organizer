@@ -19,7 +19,7 @@ def delete_all_events(service):
     service.events().delete(calendarId='primary', eventId=event['id']).execute()
 
 def print_colors(service):
-  colors: dict = service.colors().get().execute()['calendar']
+  colors: dict = service.colors().get().execute()['event']
 
   for code, body in colors.items():
     hex_code = body['background']
@@ -59,7 +59,7 @@ def main():
     'recurrence': [
       'RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR'
     ],
-    'colorId': '3',
+    'colorId': '8',
     'reminders': {
       'useDefault': False,
       'overrides': [
@@ -73,11 +73,11 @@ def main():
     service = build("calendar", "v3", credentials=creds)
 
 
-    # event = service.events().insert(calendarId='primary', body=event).execute()
-    #
-    # print(event)
+
 
     delete_all_events(service)
+
+    # event = service.events().insert(calendarId='primary', body=event).execute()
 
     print_colors(service)
 
